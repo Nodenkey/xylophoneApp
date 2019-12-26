@@ -1,3 +1,4 @@
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(XylophoneApp());
@@ -6,9 +7,11 @@ class XylophoneApp extends StatelessWidget {
   Widget tile(int soundNum, MaterialColor color) {
     return Expanded(
       child: FlatButton(
-        onPressed: () {},
-        color: color,
-      ),
+          onPressed: () {
+            AudioCache player = AudioCache();
+            player.play('note$soundNum.wav');
+          },
+          color: color),
     );
   }
 
